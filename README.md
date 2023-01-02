@@ -485,3 +485,38 @@ Select * from dim.RemoteWork
 
 ```
 
+### STORED PROCEDURES
+#### QUESTION : PREVENT Procedure from acceting NULLS
+
+```
+
+DECLARE @terr table (ID int, territory varchar(20))
+INSERT INTO @terr 
+VALUES
+(3, 'Central'),
+(4, 'Southwest'),
+(6, 'Canada'),
+(7,'France'),
+(10, 'United Kindom')
+
+SELECT * FROM @terr
+
+select Year(fs.OrderDate) AS 'Year'
+		,ter.TerritoryID
+	,ter.SalesTerritory
+	,ter.SalesCountry
+	,sum(fs.SubTotal) as 'TotalSales'
+
+from stg.SalesOrderHeader fs
+join vw.dSalesTerritory ter
+on fs.TerritoryID = fs.TerritoryID
+--where ter.te
+group by Year(fs.OrderDate)
+,ter.TerritoryID
+	,ter.SalesTerritory
+	,ter.SalesCountry
+	--,fs.SubTotal
+	
+	
+```
+
