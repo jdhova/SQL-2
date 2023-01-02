@@ -483,5 +483,5 @@ CREATE OR ALTER VIEW vw.RemoteWork
 AS
 Select * from dim.RemoteWork
 
-```#   S Q L - 2  
- 
+```
+
