@@ -520,3 +520,51 @@ group by Year(fs.OrderDate)
 	
 ```
 
+## ELT
+### CHECK SCHEMAS
+
+```
+
+
+IF NOT EXISTS (SELECT *
+	FROM sys.schemas
+	WHERE name = N'rpt'
+	)
+	exec('Create schema[rpt]')
+	GO
+
+	SELECT * FROM sys.schemas
+	WHERE name = 'rpt'
+
+```
+
+### TRUNCATE SCHEMAS
+
+```
+
+TRUNCATE TABLE stg.Customers;
+GO
+TRUNCATE TABLE stg.Product;
+GO
+
+```
+
+### CHECCK FOR PRIMARY KEYS CONSTRAINTS AADD PK'S
+
+```
+GO
+ALTER TABLE stg.Product
+DROP CONSTRAINT if exists PK_Product;
+GO
+ALTER TABLE stg.Product
+ADD CONSTRAINT PK_Product PRIMARY KEY (product_id)
+GO
+
+ALTER TABLE stg.Store
+DROP CONSTRAINT if exists PK_Store;
+GO
+ALTER TABLE stg.Store
+ADD CONSTRAINT PK_Store PRIMARY KEY (store_id)
+
+
+```
