@@ -568,3 +568,7 @@ ADD CONSTRAINT PK_Store PRIMARY KEY (store_id)
 
 
 ```
+#### TRAPING ERRORS AND ORPHANS IN FACT TABLE USING THEIR FORIGN KEY 
+```
+using cusors (recussion) in ssis makes it slower cos its runs one after the other but sql scripts are faster in trapping errors , we just need to build 2 nodes one for the error and one for the clean db
+```
